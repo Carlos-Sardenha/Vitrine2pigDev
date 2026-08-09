@@ -1,0 +1,307 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Torra Miúda, modelo de site por Carlos</title>
+    <meta
+      name="description"
+      content="Modelo demonstrativo de site para café e padaria artesanal, criado por Carlos · Sites com cara de caro."
+    />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#f6eee1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Modelo de site: Café e padaria , feito por Carlos" />
+    <meta
+      property="og:description"
+      content="Quente, apetitoso, com cheiro de pão saindo do forno. Veja o modelo navegável e imagine o seu."
+    />
+    <meta property="og:url" content="https://2pigdev.com/modelos/cafe/" />
+    <meta property="og:image" content="https://2pigdev.com/og/og-cafe.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="module" src="/src/js/pages/cafe.js"></script>
+  </head>
+  <body class="theme-cafe">
+    <header class="cafe-nav">
+      <a class="cafe-nav__brand" href="#topo">
+        <span class="cafe-nav__name">Torra Miúda</span>
+        <span class="label cafe-nav__sub">Café &amp; Padaria</span>
+      </a>
+      <a class="cta" href="#cardapio"><span>Ver o cardápio</span></a>
+    </header>
+
+    <main id="topo">
+      <!-- Hero: foto full-bleed apetitosa, texto em creme -->
+      <section class="cafe-hero">
+        <img
+          class="cafe-hero__bg"
+          src="/img/cafe-hero.webp"
+          alt="Balcão de café com bebidas e pães recém-saídos do forno (imagem ilustrativa)"
+          width="1600"
+          height="900"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="cafe-hero__content">
+          <h1 class="display" data-hero-lines>
+            <span class="line">Café passado na hora.</span>
+            <span class="line">Pão saindo do forno.</span>
+          </h1>
+          <div class="cafe-hero__foot">
+            <p class="lead" data-reveal>
+              Torra própria, fermentação lenta e mesa pra ficar.
+            </p>
+            <a class="cta" href="#cardapio" data-reveal><span>Ver o cardápio</span></a>
+          </div>
+          <p class="label cafe-hero__meta" data-reveal>
+            Aberto hoje até 19h · Rua dos Exemplos, 47 (endereço fictício)
+          </p>
+        </div>
+      </section>
+
+      <!-- Marquee contínuo (faixa caramelo) -->
+      <div class="cafe-marquee" aria-hidden="true">
+        <div class="cafe-marquee__track">
+          <span class="cafe-marquee__text"
+            >café quentinho, pão na chapa, bolo de fubá, café quentinho, pão
+            na chapa, bolo de fubá, café quentinho, pão na chapa, bolo de
+            fubá, café quentinho, pão na chapa, bolo de fubá, café quentinho
+            , pão na chapa, bolo de fubá,&nbsp;</span
+          >
+          <span class="cafe-marquee__text"
+            >café quentinho, pão na chapa, bolo de fubá, café quentinho, pão
+            na chapa, bolo de fubá, café quentinho, pão na chapa, bolo de
+            fubá, café quentinho, pão na chapa, bolo de fubá, café quentinho
+            , pão na chapa, bolo de fubá,&nbsp;</span
+          >
+        </div>
+      </div>
+
+      <!-- Cardápio -->
+      <section class="cafe-menu section" id="cardapio">
+        <div class="section-head">
+          <span class="section-num">01</span>
+          <span class="label">Cardápio</span>
+        </div>
+        <h2 class="title" data-reveal-lines>
+          <span class="line">O de sempre,</span>
+          <span class="line">bem feito.</span>
+        </h2>
+
+        <ul class="cafe-menu__list">
+          <li class="cafe-menu__item" data-img="/img/cafe-espresso.webp" data-reveal>
+            <div class="cafe-menu__row">
+              <span class="cafe-menu__name">Coado da casa</span>
+              <span class="cafe-menu__dots" aria-hidden="true"></span>
+              <span class="cafe-menu__price">8</span>
+            </div>
+            <div class="cafe-menu__panel">
+              <div class="cafe-menu__card">
+                <img
+                  src="/img/cafe-espresso.webp"
+                  alt="Café fresco sendo extraído na máquina (imagem ilustrativa)"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </li>
+          <li class="cafe-menu__item" data-img="/img/cafe-latte.webp" data-reveal>
+            <div class="cafe-menu__row">
+              <span class="cafe-menu__name">Cappuccino de canela</span>
+              <span class="cafe-menu__dots" aria-hidden="true"></span>
+              <span class="cafe-menu__price">14</span>
+            </div>
+            <div class="cafe-menu__panel">
+              <div class="cafe-menu__card">
+                <img
+                  src="/img/cafe-latte.webp"
+                  alt="Cappuccino de canela com espuma de leite (imagem ilustrativa)"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </li>
+          <li class="cafe-menu__item" data-img="/img/cafe-croissant.webp" data-reveal>
+            <div class="cafe-menu__row">
+              <span class="cafe-menu__name">Pão na chapa</span>
+              <span class="cafe-menu__dots" aria-hidden="true"></span>
+              <span class="cafe-menu__price">9</span>
+            </div>
+            <div class="cafe-menu__panel">
+              <div class="cafe-menu__card">
+                <img
+                  src="/img/cafe-croissant.webp"
+                  alt="Pão dourado na manteiga (imagem ilustrativa)"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </li>
+          <li class="cafe-menu__item" data-img="/img/cafe-croissant.webp" data-reveal>
+            <div class="cafe-menu__row">
+              <span class="cafe-menu__name">Queijo quente de fermentação natural</span>
+              <span class="cafe-menu__dots" aria-hidden="true"></span>
+              <span class="cafe-menu__price">16</span>
+            </div>
+            <div class="cafe-menu__panel">
+              <div class="cafe-menu__card">
+                <img
+                  src="/img/cafe-croissant.webp"
+                  alt="Pão artesanal dourado da casa (imagem ilustrativa)"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </li>
+          <li class="cafe-menu__item" data-img="/img/cafe-bolo.webp" data-reveal>
+            <div class="cafe-menu__row">
+              <span class="cafe-menu__name">Bolo de fubá com goiabada</span>
+              <span class="cafe-menu__dots" aria-hidden="true"></span>
+              <span class="cafe-menu__price">10</span>
+            </div>
+            <div class="cafe-menu__panel">
+              <div class="cafe-menu__card">
+                <img
+                  src="/img/cafe-bolo.webp"
+                  alt="Fatia de bolo de fubá com goiabada (imagem ilustrativa)"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </li>
+          <li class="cafe-menu__item" data-img="/img/cafe-espresso.webp" data-reveal>
+            <div class="cafe-menu__row">
+              <span class="cafe-menu__name">Tônica de café com laranja</span>
+              <span class="cafe-menu__dots" aria-hidden="true"></span>
+              <span class="cafe-menu__price">15</span>
+            </div>
+            <div class="cafe-menu__panel">
+              <div class="cafe-menu__card">
+                <img
+                  src="/img/cafe-espresso.webp"
+                  alt="Café da casa recém-preparado (imagem ilustrativa)"
+                  width="800"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <p class="label cafe-menu__note" data-reveal>
+          Cardápio completo no balcão. E o cheiro, só pessoalmente.
+        </p>
+      </section>
+
+      <!-- Ambiente (seção invertida em marrom-café) -->
+      <section class="cafe-place section-full">
+        <div class="cafe-place__inner section">
+          <div class="section-head">
+            <span class="section-num">02</span>
+            <span class="label">Ambiente</span>
+          </div>
+          <div class="cafe-place__intro">
+            <h2 class="title" data-reveal-lines>
+              <span class="line">Lugar</span>
+              <span class="line">de ficar.</span>
+            </h2>
+            <p class="lead" data-reveal>
+              Wi-fi bom, tomada na mesa e ninguém apressando você.
+            </p>
+          </div>
+          <div class="cafe-place__grid">
+            <figure class="cafe-place__media cafe-place__media--tall" data-reveal="clip">
+              <img
+                src="/img/cafe-interior.webp"
+                alt="Salão do café com mesas de madeira e luz natural (imagem ilustrativa)"
+                width="900"
+                height="1125"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="cafe-place__media cafe-place__media--wide" data-reveal="clip">
+              <img
+                src="/img/cafe-textura.webp"
+                alt="Outro ângulo do salão do café (imagem ilustrativa)"
+                width="1400"
+                height="788"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Localização (bloco tipográfico, sem mapa real) -->
+      <section class="cafe-where section">
+        <div class="section-head">
+          <span class="section-num">03</span>
+          <span class="label">Localização</span>
+        </div>
+        <h2 class="cafe-where__address" data-reveal-lines>
+          <span class="line">Rua dos Exemplos, 47</span>
+          <span class="line">Bairro Imaginário</span>
+        </h2>
+        <div class="cafe-where__meta" data-reveal-group>
+          <p class="label cafe-where__hours" data-reveal>Ter–Dom · 8h às 19h</p>
+          <p class="label cafe-where__note" data-reveal>
+            Endereço fictício, modelo demonstrativo
+          </p>
+          <button
+            class="cta"
+            type="button"
+            data-reveal
+            data-demo-action
+            data-demo-text="No site de verdade, esse botão abriria o mapa com a rota até o café. Modelo demonstrativo por Carlos."
+          >
+            <span>Como chegar</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Moldura: footer de demo -->
+    <footer class="demo-footer">
+      <div class="demo-footer__inner">
+        <p class="demo-footer__disclaimer">
+          Torra Miúda é uma marca fictícia, criada por Carlos para demonstração.
+          Fotos de banco de imagens (Pexels). Nenhum produto é vendido nesta
+          página.
+        </p>
+        <div class="demo-footer__nav">
+          <span class="demo-footer__count">Modelo 01 de 03</span>
+          <a class="cta" href="/modelos/advocacia/"><span>← Anterior</span></a>
+          <a class="cta" href="/modelos/salao/"><span>Próximo →</span></a>
+          <a class="cta" href="/#modelos"><span>Voltar à vitrine</span></a>
+        </div>
+        <p class="demo-footer__count">
+          Modelo criado por Carlos · Sites com cara de caro
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

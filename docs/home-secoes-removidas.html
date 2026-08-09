@@ -1,0 +1,84 @@
+<!--
+  SEÇÕES REMOVIDAS DA HOME em 24/jul/2026 (decisão do Carlos: a capa fica
+  só com a vitrine de modelos).
+
+  Guardadas aqui porque o projeto não tem controle de versão. Para restaurar
+  qualquer uma, é só colar de volta em index.html entre a vitrine e o fecho.
+  O CSS delas continua em src/styles/home.css (classes .interlude, .steps,
+  .about), então voltam funcionando sem ajuste nenhum.
+-->
+
+<!-- S3 · Interlúdio escuro (1º alívio) -->
+<section class="interlude section" data-theme="dark">
+  <h2 class="title" data-reveal-lines>
+    <span class="line">Tudo isso aí em cima,</span>
+    <span class="line">fui eu que fiz.</span>
+  </h2>
+  <p class="interlude__note label" data-reveal>
+    Design, texto e código. Sem template pronto, sem enrolação.
+  </p>
+</section>
+
+<!-- S4 · Como trabalho -->
+<section class="steps section" data-theme="light">
+  <div class="section-head">
+    <span class="section-num">02</span>
+    <span class="label">Como trabalho</span>
+  </div>
+  <h2 class="title" data-reveal-lines>
+    <span class="line">Simples assim.</span>
+  </h2>
+  <ol class="steps__list" data-reveal-group>
+    <li class="steps__item" data-reveal>
+      <span class="steps__num label">01</span>
+      <h3 class="steps__title">Você me conta do seu negócio.</h3>
+      <p>Uma conversa de 15 minutos, por telefone ou WhatsApp.</p>
+    </li>
+    <li class="steps__item" data-reveal>
+      <span class="steps__num label">02</span>
+      <h3 class="steps__title">Eu desenho e te mostro.</h3>
+      <p>Você acompanha tudo pelo WhatsApp e pede ajuste à vontade.</p>
+    </li>
+    <li class="steps__item" data-reveal>
+      <span class="steps__num label">03</span>
+      <h3 class="steps__title">Seu site no ar.</h3>
+      <p>Pronto pra mandar pros seus clientes — igual eu te mandei este.</p>
+    </li>
+  </ol>
+  <p class="note note--right steps__note" data-reveal>
+    quem responde do outro lado sou eu. sem robô, sem "aguarde na fila".
+  </p>
+</section>
+
+<!-- S5 · Quem sou -->
+<section class="about section" data-theme="light">
+  <div class="section-head">
+    <span class="section-num">03</span>
+    <span class="label">Quem sou</span>
+  </div>
+  <div class="about__grid">
+    <figure class="about__media tilt-l" data-reveal="clip">
+      <img
+        src="/img/retrato-carlos.webp"
+        alt="Retrato de Carlos"
+        width="760"
+        height="950"
+        loading="lazy"
+        decoding="async"
+        onerror="this.parentElement.classList.add('about__media--empty')"
+      />
+    </figure>
+    <div class="about__text">
+      <p class="lead" data-reveal>
+        Sou o Carlos. Desenho e construo sites pra pequenos negócios que não têm
+        tempo nem verba de agência — mas se recusam a ficar com um site qualquer.
+      </p>
+      <p class="lead" data-reveal>
+        Trabalho com poucos clientes por vez, porque gosto de entender o negócio
+        antes de desenhar qualquer coisa. Se eu não achar que consigo fazer um
+        trabalho bom pro seu caso, eu falo — é mais honesto pros dois.
+      </p>
+      <span class="signature" aria-hidden="true">— Carlos</span>
+    </div>
+  </div>
+</section>

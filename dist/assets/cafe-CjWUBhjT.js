@@ -1,0 +1,1 @@
+import{i as o,a as i,h as e,b as a}from"./transitions-CalsLBDx.js";import{i as r}from"./demo-frame-BePDpdS9.js";o();i();e(document.querySelector("[data-hero-lines]"),.2);a();r({demo:"cafe",waMessage:"Oi Carlos! Vi o modelo do café (Torra Miúda) e quero um site assim pro meu negócio."});

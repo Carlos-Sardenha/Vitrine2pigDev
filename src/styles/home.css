@@ -1,0 +1,375 @@
+/* ============================================================
+   HOME — tema Normal is Boring: claro, P&B, editorial.
+   Alívios escuros Izanami via [data-theme='dark'] + crossfade
+   do fundo do body com scrub (home.js).
+   ============================================================ */
+
+@layer page {
+  body.theme-home {
+    --bg: #ffffff;
+    --ink: #0a0a0a;
+    --accent: #0a0a0a;
+    --font-display: 'Fraunces', georgia, serif;
+    --font-body: 'Archivo', system-ui, sans-serif;
+    --display-weight: 320;
+  }
+
+  /* Seções não pintam fundo próprio: o body cruza de cor no scroll */
+  [data-theme] {
+    background: transparent;
+  }
+
+  /* --- Nav --- */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: var(--z-nav);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px var(--gutter);
+    mix-blend-mode: difference;
+    color: #fff;
+  }
+
+  .nav__brand {
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* --- S1 Hero --- */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-block);
+    padding-top: 96px;
+  }
+
+  .hero__headline .line em {
+    font-weight: 260;
+  }
+
+  .hero__foot {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    align-items: flex-start;
+  }
+
+  .hero__meta {
+    opacity: 0.55;
+  }
+
+  @media (min-width: 768px) {
+    .hero__foot {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3em;
+    }
+
+    .hero__foot .lead {
+      max-width: 26em;
+    }
+  }
+
+  /* --- S2 Vitrine --- */
+  .vitrine__note {
+    margin-top: 1.4em;
+    margin-left: 0.4em;
+  }
+
+  .steps__note {
+    margin-top: 2em;
+    margin-left: auto;
+    display: block;
+    max-width: 24em;
+  }
+
+  @media (min-width: 768px) {
+    .steps__note {
+      text-align: right;
+    }
+  }
+
+  .vitrine__list {
+    margin-top: var(--space-block);
+    border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  }
+
+  .vitrine__item {
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  }
+
+  .vitrine__link {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 16px var(--space-block);
+    align-items: center;
+    padding-block: clamp(28px, 5vh, 56px);
+    text-decoration: none;
+  }
+
+  .vitrine__num {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 8vw, 6rem);
+    font-weight: 200;
+    line-height: 1;
+    opacity: 0.35;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+
+  .vitrine__info {
+    display: grid;
+    gap: 0.45em;
+    justify-items: start;
+  }
+
+  .vitrine__niche {
+    opacity: 0.55;
+  }
+
+  .vitrine__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 5vw, 3.2rem);
+    font-weight: 320;
+    line-height: 1.05;
+    text-transform: uppercase;
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  .vitrine__desc {
+    max-width: 30em;
+    opacity: 0.75;
+  }
+
+  .vitrine__cta {
+    margin-top: 0.4em;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+      opacity var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+
+  .vitrine__media {
+    grid-column: 1 / -1;
+    display: block;
+    aspect-ratio: 4 / 5;
+    max-height: 420px;
+    overflow: hidden;
+    background:
+      linear-gradient(160deg, transparent 0%, rgb(0 0 0 / 0.06) 100%),
+      var(--thumb-bg, #eee);
+  }
+
+  .vitrine__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .vitrine__media--advocacia {
+    --thumb-bg: #f1eee7;
+  }
+
+  .vitrine__media--cafe {
+    --thumb-bg: #f6eee1;
+  }
+
+  .vitrine__media--salao {
+    --thumb-bg: #f7f3ee;
+  }
+
+  .vitrine__link:hover .vitrine__num {
+    opacity: 1;
+  }
+
+  .vitrine__link:hover .vitrine__name {
+    transform: translateX(8px);
+  }
+
+  .vitrine__link:hover .vitrine__cta,
+  .vitrine__link:focus-visible .vitrine__cta {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (min-width: 768px) {
+    .vitrine__link {
+      grid-template-columns: auto 1fr minmax(260px, 340px);
+    }
+
+    .vitrine__media {
+      grid-column: auto;
+    }
+  }
+
+  .vitrine__more {
+    margin-top: var(--space-block);
+    max-width: 40em;
+  }
+
+  .vitrine__more .cta {
+    margin-left: 0.6em;
+  }
+
+  /* --- S3 Interlúdio escuro --- */
+  .interlude {
+    text-align: left;
+    padding-block: calc(var(--space-section) * 1.15);
+  }
+
+  .interlude__note {
+    margin-top: 1.6em;
+    opacity: 0.6;
+  }
+
+  /* --- S4 Passos --- */
+  .steps__list {
+    display: grid;
+    gap: var(--space-block);
+    margin-top: var(--space-block);
+  }
+
+  .steps__item {
+    display: grid;
+    gap: 0.5em;
+    align-content: start;
+    padding-top: 1em;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  }
+
+  .steps__num {
+    opacity: 0.5;
+  }
+
+  .steps__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+    font-weight: 380;
+    line-height: 1.2;
+  }
+
+  .steps__item p {
+    opacity: 0.75;
+    max-width: 26em;
+  }
+
+  @media (min-width: 768px) {
+    .steps__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* --- S5 Quem sou --- */
+  .about__grid {
+    display: grid;
+    gap: var(--space-block);
+    margin-top: var(--space-block);
+  }
+
+  .about__text {
+    display: grid;
+    gap: 1em;
+    align-content: end;
+  }
+
+  .about__text .lead {
+    max-width: 30em;
+  }
+
+  .about__media {
+    aspect-ratio: 4 / 5;
+    max-width: 420px;
+    overflow: hidden;
+    background: #ececec;
+  }
+
+  .about__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+  }
+
+  .about__media--empty {
+    display: grid;
+    place-items: center;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        transparent 0 12px,
+        rgb(0 0 0 / 0.04) 12px 24px
+      ),
+      #f0f0f0;
+  }
+
+  .about__media--empty::after {
+    content: 'foto em breve';
+    font-family: var(--font-system);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+
+  @media (min-width: 768px) {
+    .about__grid {
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      align-items: end;
+    }
+  }
+
+  /* --- S6 Fecho + footer --- */
+  .closing {
+    padding-block: calc(var(--space-section) * 1.2) var(--space-section);
+    display: grid;
+    gap: 1.4em;
+    justify-items: start;
+  }
+
+  /* Sem JS ou com prefers-reduced-motion não há crossfade do body:
+     o fecho pinta o próprio fundo para não ficar claro. */
+  html:not(.has-motion) .closing,
+  html:not(.has-motion) .footer {
+    background: var(--dark-bg);
+    color: var(--dark-ink);
+  }
+
+  .closing__proof {
+    opacity: 0.6;
+    max-width: 34em;
+  }
+
+  .closing__cta {
+    font-size: 1.05rem;
+  }
+
+  .footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em 2em;
+    padding: 0 var(--gutter) 40px;
+    max-width: var(--container);
+    margin-inline: auto;
+    opacity: 0.75;
+  }
+
+  .footer__nav {
+    display: flex;
+    gap: 1.6em;
+  }
+
+  .footer__nav a {
+    text-decoration: none;
+  }
+
+  .footer__nav a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+  }
+}

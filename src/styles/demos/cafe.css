@@ -1,0 +1,346 @@
+﻿/* ============================================================
+   DEMO CAFÉ — Torra Miúda (marca fictícia)
+   Creme #F6EEE1 · marrom-café #2A190E · caramelo #C4762C
+   Young Serif (display, peso único 400) + Nunito Sans (corpo).
+   Vivacidade: durações 15% mais RÁPIDAS, marquee contínuo,
+   foto que segue o cursor no cardápio.
+   ============================================================ */
+
+@layer page {
+  body.theme-cafe {
+    --bg: #f6eee1;
+    --ink: #2a190e;
+    --accent: #c4762c;
+    --font-display: 'Young Serif', georgia, serif;
+    --font-body: 'Nunito Sans', system-ui, sans-serif;
+    --display-weight: 400;
+
+    /* vivacidade: tudo 15% mais rápido */
+    --dur-fast: 0.255s;
+    --dur-base: 0.595s;
+    --dur-slow: 0.85s;
+  }
+
+  .theme-cafe .display {
+    line-height: 1.04;
+    letter-spacing: 0;
+  }
+
+  .theme-cafe .title {
+    letter-spacing: 0.01em;
+    line-height: 1.12;
+  }
+
+  /* --- Nav --- */
+  .cafe-nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: var(--z-nav);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px var(--gutter);
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+
+  .cafe-nav__brand {
+    display: grid;
+    line-height: 1.2;
+    text-decoration: none;
+  }
+
+  .cafe-nav__name {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .cafe-nav__sub {
+    color: var(--accent);
+  }
+
+  /* --- Hero: foto full-bleed + overlay + texto em creme --- */
+  .cafe-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    display: flex;
+    color: var(--bg);
+  }
+
+  .cafe-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cafe-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgb(26 14 6 / 0.45) 0%,
+      rgb(26 14 6 / 0.28) 45%,
+      rgb(26 14 6 / 0.58) 100%
+    );
+  }
+
+  .cafe-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-block);
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding: clamp(110px, 16vh, 160px) var(--gutter) var(--space-block);
+  }
+
+  .cafe-hero__foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4em;
+  }
+
+  .cafe-hero__meta {
+    opacity: 0.8;
+  }
+
+  @media (min-width: 768px) {
+    .cafe-hero__foot {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3em;
+    }
+
+    .cafe-hero__foot .lead {
+      max-width: 22em;
+    }
+  }
+
+  /* --- Marquee contínuo (faixa caramelo) --- */
+  .cafe-marquee {
+    background: var(--accent);
+    color: var(--ink);
+    overflow: hidden;
+    padding-block: clamp(12px, 2vh, 20px);
+  }
+
+  .cafe-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: cafe-marquee 30s linear infinite;
+  }
+
+  .cafe-marquee__text {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+
+  @keyframes cafe-marquee {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cafe-marquee__track {
+      animation: none;
+    }
+  }
+
+  /* --- Cardápio: lista tipográfica --- */
+  .cafe-menu__list {
+    margin-top: var(--space-block);
+    border-top: 1px solid color-mix(in srgb, var(--ink) 20%, transparent);
+  }
+
+  /* Item do cardápio: foto sempre visível à esquerda, texto à direita */
+  .cafe-menu__item {
+    display: grid;
+    grid-template-columns: clamp(76px, 13vw, 116px) 1fr;
+    align-items: center;
+    gap: clamp(14px, 3vw, 28px);
+    padding-block: clamp(14px, 2.4vh, 22px);
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent);
+  }
+
+  .cafe-menu__row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: baseline;
+    gap: 1em;
+    width: 100%;
+    text-align: left;
+  }
+
+  .cafe-menu__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 3.6vw, 2.1rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    transform: translateX(0);
+    transition:
+      color var(--dur-fast) var(--ease-out),
+      transform var(--dur-fast) var(--ease-out);
+  }
+
+  .cafe-menu__item:hover .cafe-menu__name {
+    color: var(--accent);
+    transform: translateX(6px);
+  }
+
+  .cafe-menu__dots {
+    align-self: end;
+    margin-bottom: 0.55em;
+    border-bottom: 2px dotted color-mix(in srgb, var(--ink) 32%, transparent);
+  }
+
+  .cafe-menu__price {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2.4vw, 1.5rem);
+    color: var(--accent);
+  }
+
+  /* Foto do item: sempre visível, na coluna da esquerda */
+  .cafe-menu__panel {
+    order: -1;
+  }
+
+  .cafe-menu__card {
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .cafe-menu__card img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    transition: scale var(--dur-base) var(--ease-out);
+  }
+
+  .cafe-menu__item:hover .cafe-menu__card img {
+    scale: 1.06;
+  }
+
+  .cafe-menu__note {
+    margin-top: var(--space-block);
+    opacity: 0.6;
+  }
+
+  /* --- Ambiente (seção invertida em marrom-café) --- */
+  .cafe-place {
+    background: var(--ink);
+    color: var(--bg);
+    padding-block: var(--space-section);
+  }
+
+  .cafe-place__inner {
+    padding-block: 0;
+    display: grid;
+    gap: var(--space-block);
+  }
+
+  .cafe-place__intro {
+    display: grid;
+    gap: 1em;
+    justify-items: start;
+  }
+
+  .cafe-place__grid {
+    display: grid;
+    gap: var(--space-block);
+  }
+
+  .cafe-place__media {
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .cafe-place__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cafe-place__media--tall {
+    aspect-ratio: 4 / 5;
+  }
+
+  .cafe-place__media--wide {
+    aspect-ratio: 16 / 9;
+  }
+
+  @media (min-width: 768px) {
+    .cafe-place__grid {
+      grid-template-columns: minmax(260px, 420px) 1fr;
+      align-items: end;
+      gap: calc(var(--space-block) * 1.5);
+    }
+  }
+
+  /* --- Localização (bloco tipográfico, sem mapa) --- */
+  .cafe-where__address {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    font-size: clamp(2rem, 7.5vw, 5rem);
+    line-height: 1.05;
+    text-transform: uppercase;
+    text-wrap: balance;
+    max-width: 12em;
+  }
+
+  .cafe-where__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 1em 2.5em;
+    margin-top: var(--space-block);
+  }
+
+  .cafe-where__hours {
+    color: var(--accent);
+  }
+
+  .cafe-where__note {
+    opacity: 0.55;
+  }
+
+  /* --- Ajustes de telona --- */
+  @media (min-width: 1100px) {
+    .cafe-menu__row {
+      gap: 1.6em;
+    }
+
+    .cafe-menu__name {
+      font-size: clamp(1.8rem, 2.4vw, 2.4rem);
+    }
+
+    .cafe-where__address {
+      font-size: clamp(4rem, 6.5vw, 5.5rem);
+    }
+
+    .cafe-place__grid {
+      gap: calc(var(--space-block) * 2);
+    }
+  }
+}

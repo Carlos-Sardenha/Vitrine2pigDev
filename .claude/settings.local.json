@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "PowerShell(npm install)",
+      "PowerShell(npm audit --json)",
+      "PowerShell(npm install --save-dev sharp@latest)",
+      "PowerShell(npm audit)",
+      "Bash(command -v python)",
+      "Bash(command -v python3)",
+      "Bash(command -v magick)",
+      "Bash(command -v identify)",
+      "Bash(python -c \"import sys\")",
+      "Bash(echo \"exit=$?\")",
+      "Bash(python \"C:\\\\Users\\\\Carlos\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-Carlos-Desktop-Site-de-Apresenta--o\\\\827fa26a-5be4-4c33-84a7-37d538905584\\\\scratchpad\\\\dims.py\")",
+      "WebFetch(domain:www.pexels.com)",
+      "PowerShell(npm run images; Get-ChildItem \"public\\\\img\" | Measure-Object Length -Sum | ForEach-Object { \"Total: $\\([math]::Round\\($_.Sum/1KB\\)\\) KB em $\\($_.Count\\) arquivos\" })",
+      "PowerShell(npm run og; Get-ChildItem \"public\\\\og\" | Select-Object Name, @{N='KB';E={[math]::Round\\($_.Length/1KB\\)}})",
+      "Bash(cd /c/Users/Carlos/Desktop; d=$\\(ls -d Site*\\); echo \"DIR=$d\"; ls \"$d/img\"; echo \"---fontsource---\"; ls \"$d/node_modules/@fontsource\" 2>/dev/null; echo \"---modelos---\"; ls \"$d/modelos\"; echo \"---package.json---\"; cat \"$d/package.json\")",
+      "Bash(node --check src/js/pages/salao.js)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

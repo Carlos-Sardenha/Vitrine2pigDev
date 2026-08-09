@@ -1,0 +1,42 @@
+/* ============================================================
+   TOKENS GLOBAIS — o "sistema do autor", igual em toda página.
+   Identidade (cor/fonte) NÃO vive aqui: vive nos temas
+   (body.theme-*) de cada página.
+   Breakpoints por convenção (não funcionam em custom property):
+   mobile-first · @media (min-width: 768px) · (min-width: 1100px)
+   ============================================================ */
+
+:root {
+  /* Motion */
+  --dur-fast: 0.3s;
+  --dur-base: 0.7s;
+  --dur-slow: 1s;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); /* ~expo.out */
+
+  /* Espaçamento */
+  --space-section: clamp(72px, 12vh, 160px);
+  --space-block: clamp(32px, 5vh, 64px);
+  --gutter: max(24px, 5vw);
+  --container: 1440px;
+
+  /* Escala tipográfica */
+  --text-display: clamp(2.6rem, 12vw, 9.5rem);
+  --text-title: clamp(1.8rem, 5.5vw, 3.6rem);
+  --text-lead: clamp(1.05rem, 1.5vw, 1.35rem);
+  --text-body: 1rem;
+  --text-label: 0.75rem;
+
+  /* Fonte de sistema (a caligrafia do autor, em TODAS as páginas) */
+  --font-system: 'Archivo', system-ui, sans-serif;
+  --tracking-label: 0.12em;
+
+  /* Alívio escuro (Izanami) — usado pela home e pela moldura das demos */
+  --dark-bg: #0a0801;
+  --dark-ink: #d9d7d4;
+
+  /* Z-index */
+  --z-nav: 50;
+  --z-pill: 60;
+  --z-modal: 80;
+  --z-curtain: 90;
+}

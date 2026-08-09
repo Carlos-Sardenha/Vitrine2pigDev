@@ -1,0 +1,229 @@
+/* ============================================================
+   COMPONENTES COMPARTILHADOS — moldura das demos.
+   Pill "MODELO · por Carlos" + modal-vitrine + footer de demo.
+   Vivem nos tokens do AUTOR (--dark-bg/--dark-ink + Archivo),
+   atravessando as identidades das demos.
+   ============================================================ */
+
+@layer components {
+  /* --- Pill flutuante ------------------------------------- */
+  .demo-pill {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--z-pill);
+    background: var(--dark-bg);
+    color: var(--dark-ink);
+    font-family: var(--font-system);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.25);
+    opacity: 0;
+    translate: 0 16px;
+    pointer-events: none;
+    transition:
+      opacity var(--dur-fast) var(--ease-out),
+      translate var(--dur-fast) var(--ease-out);
+  }
+
+  .demo-pill.is-visible {
+    opacity: 1;
+    translate: 0 0;
+    pointer-events: auto;
+  }
+
+  .demo-pill__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.8em 1.3em;
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .demo-pill__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: pill-pulse 2.4s infinite;
+  }
+
+  @keyframes pill-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  .demo-pill__menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.4em;
+    padding: 0 1.3em 1em;
+  }
+
+  .demo-pill.is-open .demo-pill__menu {
+    display: flex;
+  }
+
+  .demo-pill__menu .cta {
+    font-size: 0.85rem;
+  }
+
+  @media (min-width: 768px) {
+    .demo-pill {
+      left: auto;
+      right: 24px;
+      bottom: 24px;
+      transform: none;
+    }
+  }
+
+  /* --- Modal-vitrine (conversões fake) --------------------- */
+  .demo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-modal);
+    display: grid;
+    place-items: center;
+    padding: var(--gutter);
+    visibility: hidden;
+  }
+
+  .demo-modal.is-open {
+    visibility: visible;
+  }
+
+  .demo-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(0 0 0 / 0.55);
+    opacity: 0;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+
+  .demo-modal.is-open .demo-modal__backdrop {
+    opacity: 1;
+  }
+
+  .demo-modal__card {
+    position: relative;
+    background: var(--dark-bg);
+    color: var(--dark-ink);
+    max-width: 460px;
+    padding: clamp(28px, 5vw, 48px);
+    display: grid;
+    gap: 1.2em;
+    opacity: 0;
+    translate: 0 24px;
+    transition:
+      opacity var(--dur-base) var(--ease-out),
+      translate var(--dur-base) var(--ease-out);
+  }
+
+  .demo-modal.is-open .demo-modal__card {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  .demo-modal__title {
+    font-family: var(--font-system);
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 500;
+    line-height: 1.25;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+
+  .demo-modal__text {
+    font-family: var(--font-system);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+  }
+
+  .demo-modal__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em 1.5em;
+    margin-top: 0.5em;
+  }
+
+  .demo-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    font-family: var(--font-system);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+
+  .demo-modal__close:hover {
+    opacity: 1;
+  }
+
+  /* --- Footer de demo: assinatura + navegação 01↔02↔03 ----- */
+  .demo-footer {
+    background: var(--dark-bg);
+    color: var(--dark-ink);
+    padding: var(--space-section) var(--gutter);
+    font-family: var(--font-system);
+  }
+
+  .demo-footer__inner {
+    max-width: var(--container);
+    margin-inline: auto;
+    display: grid;
+    gap: var(--space-block);
+  }
+
+  .demo-footer__disclaimer {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    opacity: 0.65;
+    max-width: 46em;
+  }
+
+  .demo-footer__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6em;
+  }
+
+  /* o contador ocupa a linha inteira: os botões alinham juntos abaixo */
+  .demo-footer__nav .demo-footer__count {
+    flex-basis: 100%;
+    margin-bottom: 0.2em;
+  }
+
+  /* navegação é secundária: botão menor que os CTAs de conversão */
+  .demo-footer__nav .cta {
+    flex: 1 1 auto;
+    font-size: 0.8rem;
+    padding: 0.7em 1.1em;
+  }
+
+  @media (max-width: 520px) {
+    .demo-footer__nav .cta {
+      flex-basis: 100%;
+    }
+  }
+
+  .demo-footer__count {
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+}

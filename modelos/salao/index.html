@@ -1,0 +1,324 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Casa Lume, modelo de site por Carlos</title>
+    <meta
+      name="description"
+      content="Modelo demonstrativo de site para salão de beleza, criado por Carlos · Sites com cara de caro."
+    />
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#f7f3ee" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Modelo de site: Salão de beleza , feito por Carlos" />
+    <meta
+      property="og:description"
+      content="Leve, acolhedor, com um antes-e-depois que vende sozinho. Veja o modelo navegável e imagine o seu."
+    />
+    <meta property="og:url" content="https://2pigdev.com/modelos/salao/" />
+    <meta property="og:image" content="https://2pigdev.com/og/og-salao.jpg" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="module" src="/src/js/pages/salao.js"></script>
+  </head>
+  <body class="theme-salao">
+    <header class="lume-nav">
+      <a class="lume-nav__brand" href="#topo">
+        <span class="lume-nav__name">Casa Lume</span>
+        <span class="label lume-nav__sub">Beleza e Bem-estar</span>
+      </a>
+      <button
+        class="cta"
+        type="button"
+        data-demo-action
+        data-demo-text="No site de verdade, esse clique abriria a agenda online do salão. Modelo demonstrativo por Carlos."
+      >
+        <span>Agendar horário</span>
+      </button>
+    </header>
+
+    <main id="topo">
+      <!-- Hero -->
+      <section class="lume-hero section">
+        <div class="lume-hero__text">
+          <h1 class="display" data-hero-lines>
+            <span class="line">Seu tempo</span>
+            <span class="line">de cuidar</span>
+            <span class="line">de você.</span>
+          </h1>
+          <p class="lead" data-reveal>
+            Cabelo, pele e um respiro no meio da semana.
+          </p>
+          <button
+            class="cta"
+            type="button"
+            data-reveal
+            data-demo-action
+            data-demo-text="No site de verdade, esse clique abriria a agenda online do salão. Modelo demonstrativo por Carlos."
+          >
+            <span>Agendar horário</span>
+          </button>
+          <p class="label lume-hero__meta" data-reveal>
+            Ter–Sáb · 9h às 20h · Rua Fictícia, 88
+          </p>
+        </div>
+        <figure class="lume-hero__media" data-reveal="clip">
+          <img
+            src="/img/salao-hero.webp"
+            alt="Ambiente claro e acolhedor do salão Casa Lume (imagem ilustrativa)"
+            width="1600"
+            height="900"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </figure>
+      </section>
+
+      <!-- Serviços -->
+      <section class="lume-services section">
+        <div class="section-head">
+          <span class="section-num">01</span>
+          <span class="label">Serviços</span>
+        </div>
+        <h2 class="title" data-reveal-lines>
+          <span class="line">Cuidado,</span>
+          <span class="line">sem pressa.</span>
+        </h2>
+
+        <ul class="lume-services__grid" data-reveal-group>
+          <li class="lume-card" data-reveal>
+            <span class="label lume-card__num">01</span>
+            <h3 class="lume-card__name">Corte &amp; Estilo</h3>
+            <p class="label lume-card__price">A partir de R$ 90</p>
+            <p class="lume-card__desc">
+              Corte pensado para a sua rotina, bonito no salão e no dia seguinte.
+            </p>
+          </li>
+          <li class="lume-card" data-reveal>
+            <span class="label lume-card__num">02</span>
+            <h3 class="lume-card__name">Cor &amp; Mechas</h3>
+            <p class="label lume-card__price">A partir de R$ 180</p>
+            <p class="lume-card__desc">
+              Coloração e mechas com diagnóstico do fio antes de qualquer química.
+            </p>
+          </li>
+          <li class="lume-card" data-reveal>
+            <span class="label lume-card__num">03</span>
+            <h3 class="lume-card__name">Spa Capilar</h3>
+            <p class="label lume-card__price">A partir de R$ 120</p>
+            <p class="lume-card__desc">
+              Hidratação profunda e massagem: uma hora inteira só sua.
+            </p>
+          </li>
+          <li class="lume-card" data-reveal>
+            <span class="label lume-card__num">04</span>
+            <h3 class="lume-card__name">Mãos &amp; Pés</h3>
+            <p class="label lume-card__price">A partir de R$ 60</p>
+            <p class="lume-card__desc">
+              Manicure e pedicure com calma, do jeito que cutícula pede.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Antes & Depois (interação memorável) -->
+      <section class="lume-ba section">
+        <div class="section-head">
+          <span class="section-num">02</span>
+          <span class="label">Antes &amp; Depois</span>
+        </div>
+        <h2 class="title" data-reveal-lines>
+          <span class="line">Arrasta</span>
+          <span class="line">e vê a diferença.</span>
+        </h2>
+
+        <div class="lume-compare" data-reveal>
+          <img
+            class="lume-compare__before"
+            src="/img/salao-antes.webp"
+            alt="Cabelo antes: seco, sem forma e sem brilho (imagem ilustrativa)"
+            width="900"
+            height="1125"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="lume-compare__after" aria-hidden="true">
+            <img
+              src="/img/salao-depois.webp"
+              alt=""
+              width="900"
+              height="1125"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <span class="label lume-compare__tag lume-compare__tag--before" aria-hidden="true">Antes</span>
+          <span class="label lume-compare__tag lume-compare__tag--after" aria-hidden="true">Depois</span>
+          <div
+            class="lume-compare__handle"
+            role="slider"
+            tabindex="0"
+            aria-label="Comparação antes e depois, arraste ou use as setas do teclado"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="50"
+            aria-valuetext="Antes 50% · Depois 50%"
+          >
+            <span class="lume-compare__grip" aria-hidden="true">&lsaquo;&nbsp;&rsaquo;</span>
+          </div>
+        </div>
+        <p class="label lume-ba__hint" data-reveal>
+          Arraste a alça, funciona no toque também
+        </p>
+      </section>
+
+      <!-- Equipe (seção invertida em grafite-quente) -->
+      <section class="lume-team section-full">
+        <div class="lume-team__inner section">
+          <div class="section-head">
+            <span class="section-num">03</span>
+            <span class="label">Equipe</span>
+          </div>
+          <h2 class="title" data-reveal-lines>
+            <span class="line">Quem cuida</span>
+            <span class="line">de você.</span>
+          </h2>
+
+          <ul class="lume-team__grid" data-reveal-group>
+            <li class="lume-person" data-reveal>
+              <figure class="lume-person__media">
+                <img
+                  src="/img/salao-marina.webp"
+                  alt="Marina, cabeleireira da Casa Lume (imagem ilustrativa)"
+                  width="700"
+                  height="875"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="lume-person__name">Marina</h3>
+              <p class="label lume-person__role">Tesoura de precisão</p>
+            </li>
+            <li class="lume-person" data-reveal>
+              <figure class="lume-person__media">
+                <img
+                  src="/img/salao-duda.webp"
+                  alt="Duda, especialista em cor da Casa Lume (imagem ilustrativa)"
+                  width="700"
+                  height="875"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="lume-person__name">Duda</h3>
+              <p class="label lume-person__role">Cor e mechas</p>
+            </li>
+            <li class="lume-person" data-reveal>
+              <figure class="lume-person__media">
+                <img
+                  src="/img/salao-re.webp"
+                  alt="Rê, responsável pelos rituais de spa da Casa Lume (imagem ilustrativa)"
+                  width="700"
+                  height="875"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </figure>
+              <h3 class="lume-person__name">Rê</h3>
+              <p class="label lume-person__role">Rituais de spa</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Agendamento demonstrativo -->
+      <section class="lume-booking section" id="agendar">
+        <div class="section-head">
+          <span class="section-num">04</span>
+          <span class="label">Agendamento</span>
+        </div>
+        <h2 class="title" data-reveal-lines>
+          <span class="line">Escolhe</span>
+          <span class="line">um horário.</span>
+        </h2>
+
+        <div class="lume-booking__grid">
+          <div class="lume-booking__steps" data-reveal-group>
+            <div class="lume-step" data-reveal>
+              <p class="label lume-step__label">1 · Serviço</p>
+              <div class="lume-chips" data-chip-group>
+                <button class="lume-chip" type="button" aria-pressed="false">Corte &amp; Estilo</button>
+                <button class="lume-chip" type="button" aria-pressed="false">Cor &amp; Mechas</button>
+                <button class="lume-chip" type="button" aria-pressed="false">Spa Capilar</button>
+                <button class="lume-chip" type="button" aria-pressed="false">Mãos &amp; Pés</button>
+              </div>
+            </div>
+            <div class="lume-step" data-reveal>
+              <p class="label lume-step__label">2 · Dia</p>
+              <div class="lume-chips" data-chip-group>
+                <button class="lume-chip" type="button" aria-pressed="false">Ter 12</button>
+                <button class="lume-chip" type="button" aria-pressed="false">Qua 13</button>
+                <button class="lume-chip" type="button" aria-pressed="false">Qui 14</button>
+                <button class="lume-chip" type="button" aria-pressed="false">Sex 15</button>
+              </div>
+            </div>
+            <div class="lume-step" data-reveal>
+              <p class="label lume-step__label">3 · Horário</p>
+              <div class="lume-chips" data-chip-group>
+                <button class="lume-chip" type="button" aria-pressed="false">9h</button>
+                <button class="lume-chip" type="button" aria-pressed="false">11h</button>
+                <button class="lume-chip" type="button" aria-pressed="false">14h</button>
+                <button class="lume-chip" type="button" aria-pressed="false">16h</button>
+                <button class="lume-chip" type="button" aria-pressed="false">18h</button>
+              </div>
+            </div>
+            <button
+              class="cta"
+              type="button"
+              data-reveal
+              data-demo-action
+              data-demo-text="No site de verdade, a Marina já teria recebido seu agendamento e você, a confirmação no WhatsApp. Modelo demonstrativo por Carlos."
+            >
+              <span>Confirmar horário</span>
+            </button>
+          </div>
+          <figure class="lume-booking__media" data-reveal="clip">
+            <img
+              src="/img/salao-manicure.webp"
+              alt="Detalhe de manicure em andamento no salão (imagem ilustrativa)"
+              width="900"
+              height="1125"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </section>
+    </main>
+
+    <!-- Moldura: footer de demo -->
+    <footer class="demo-footer">
+      <div class="demo-footer__inner">
+        <p class="demo-footer__disclaimer">
+          Casa Lume é uma marca fictícia, criada por Carlos para demonstração.
+          Fotos de banco de imagens (Pexels). Nenhum agendamento real é feito
+          nesta página.
+        </p>
+        <div class="demo-footer__nav">
+          <span class="demo-footer__count">Modelo 02 de 03</span>
+          <a class="cta" href="/modelos/cafe/"><span>← Anterior</span></a>
+          <a class="cta" href="/modelos/advocacia/"><span>Próximo →</span></a>
+          <a class="cta" href="/#modelos"><span>Voltar à vitrine</span></a>
+        </div>
+        <p class="demo-footer__count">
+          Modelo criado por Carlos · Sites com cara de caro
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

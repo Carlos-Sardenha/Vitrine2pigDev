@@ -1,0 +1,655 @@
+/* ============================================================
+   REMODELAGEM PRADDA — Consultoria de avaliação de imóveis.
+   Fiel à identidade atual: base CLARA, navy #151E45 como tinta,
+   dourado da marca como acento (soft #F2CF8D em fundos/faixas,
+   #A5813D legível em textos). Multi-página como o site original:
+   Início · Sobre · Serviços · Clientes · Contato.
+   Display grotesco (Archivo) = precisão de engenharia.
+   ============================================================ */
+
+@layer page {
+  body.theme-pradda {
+    --bg: #fcfbf8;
+    --ink: #151e45;
+    --accent: #a5813d;
+    --accent-soft: #f2cf8d;
+    --navy: #151e45;
+    --cream: #f2efe7;
+    --font-display: 'Archivo', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --display-weight: 600;
+  }
+
+  .theme-pradda .display,
+  .theme-pradda .title {
+    letter-spacing: 0.005em;
+    line-height: 1.04;
+  }
+
+  .theme-pradda .display em,
+  .theme-pradda .title em {
+    color: var(--accent);
+    font-style: normal;
+    text-transform: uppercase;
+  }
+
+  /* --- Nav com menu (separação em páginas, como o original) --- */
+  .pra-nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: var(--z-nav);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5em;
+    padding: 14px var(--gutter);
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+
+  .pra-nav__brand {
+    display: grid;
+    line-height: 1.2;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .pra-nav__name {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .pra-nav__sub {
+    color: var(--accent);
+  }
+
+  .pra-nav__menu {
+    display: flex;
+    gap: 1.4em;
+    overflow-x: auto;
+    scrollbar-width: none;
+    font-family: var(--font-system);
+    font-size: var(--text-label);
+    font-weight: 500;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .pra-nav__menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pra-nav__menu a {
+    text-decoration: none;
+    opacity: 0.65;
+    white-space: nowrap;
+    padding-block: 0.4em;
+    border-bottom: 1px solid transparent;
+    transition:
+      opacity var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .pra-nav__menu a:hover {
+    opacity: 1;
+  }
+
+  .pra-nav__menu a[aria-current='page'] {
+    opacity: 1;
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .pra-nav .cta {
+    flex-shrink: 0;
+  }
+
+  /* --- Menu mobile: botão + overlay em tela cheia --- */
+  .pra-nav__toggle {
+    display: none;
+    flex-shrink: 0;
+    padding: 0.7em 1.2em;
+    border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+    border-radius: 999px;
+    transition:
+      background var(--dur-fast) var(--ease-out),
+      color var(--dur-fast) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .pra-nav.is-open {
+    background: var(--navy);
+    color: var(--cream);
+    border-bottom-color: transparent;
+  }
+
+  .pra-nav.is-open .pra-nav__toggle {
+    border-color: color-mix(in srgb, var(--cream) 40%, transparent);
+  }
+
+  .pra-menu {
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--z-nav) - 1);
+    background: var(--navy);
+    color: var(--cream);
+    display: grid;
+    align-content: center;
+    justify-items: start;
+    gap: calc(var(--space-block) * 1.2);
+    padding: 96px var(--gutter) var(--space-block);
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity var(--dur-fast) var(--ease-out),
+      visibility 0s linear var(--dur-fast);
+  }
+
+  .pra-menu.is-open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+
+  .pra-menu__links {
+    display: grid;
+    gap: 0.3em;
+  }
+
+  .pra-menu__links a {
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 9vw, 2.8rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.15;
+    text-decoration: none;
+    opacity: 0.9;
+    transform: translateY(12px);
+    transition:
+      opacity 0.5s var(--ease-out),
+      transform 0.5s var(--ease-out);
+  }
+
+  .pra-menu.is-open .pra-menu__links a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .pra-menu__links a[aria-current='page'] {
+    color: var(--accent-soft);
+  }
+
+  .pra-menu__cta {
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 767px) {
+    .pra-nav .cta {
+      display: none;
+    }
+
+    .pra-nav__menu {
+      display: none;
+    }
+
+    .pra-nav__toggle {
+      display: inline-block;
+    }
+  }
+
+  /* --- Hero navy do Início (eco do hero escuro original) --- */
+  .pra-hero {
+    background: var(--navy);
+    color: var(--cream);
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-block);
+    padding: 110px var(--gutter) var(--space-section);
+  }
+
+  .pra-hero > * {
+    max-width: var(--container);
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .pra-hero__eyebrow {
+    color: var(--accent-soft);
+  }
+
+  .pra-hero .display em {
+    color: var(--accent-soft);
+  }
+
+  .pra-hero__foot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.4em;
+  }
+
+  .pra-hero__meta {
+    opacity: 0.55;
+  }
+
+  @media (min-width: 768px) {
+    .pra-hero__foot {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 3em;
+    }
+
+    .pra-hero__foot .lead {
+      max-width: 26em;
+    }
+  }
+
+  /* --- Hero claro das páginas internas --- */
+  .pra-page-hero {
+    padding-top: calc(96px + var(--space-section) * 0.5);
+    display: grid;
+    gap: 1.2em;
+  }
+
+  .pra-page-hero__eyebrow {
+    color: var(--accent);
+  }
+
+  .pra-page-hero .lead {
+    opacity: 0.85;
+  }
+
+  /* --- Prova em números (sóbria: claro, dourado só nos detalhes) --- */
+  .pra-stats {
+    padding-block: 0;
+  }
+
+  .pra-stats__inner {
+    display: grid;
+    gap: var(--space-block);
+    padding-block: calc(var(--space-section) * 0.6);
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+
+  .pra-stats__item {
+    display: grid;
+    gap: 0.5em;
+    justify-items: start;
+    max-width: 22em;
+    padding-top: 0.9em;
+    border-top: 2px solid var(--accent-soft);
+  }
+
+  .pra-stats__num {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .pra-stats__item .label {
+    opacity: 0.65;
+  }
+
+  @media (min-width: 768px) {
+    .pra-stats__inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* --- Serviços --- */
+  .pra-services__grid {
+    display: grid;
+    gap: 1px;
+    margin-top: var(--space-block);
+    background: color-mix(in srgb, var(--ink) 14%, transparent);
+    border-block: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  }
+
+  .pra-services__card {
+    position: relative;
+    background: var(--bg);
+    padding: clamp(24px, 4vh, 40px) 0;
+    display: grid;
+    gap: 0.5em;
+    align-content: start;
+  }
+
+  .pra-services__card::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: -1px;
+    height: 2px;
+    width: 100%;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s var(--ease-out);
+  }
+
+  .pra-services__card:hover::after {
+    transform: scaleX(1);
+  }
+
+  .pra-services__num {
+    color: var(--accent);
+  }
+
+  .pra-services__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+  }
+
+  .pra-services__card p {
+    opacity: 0.72;
+    max-width: 26em;
+  }
+
+  @media (min-width: 768px) {
+    .pra-services__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pra-services__card {
+      padding-inline: clamp(24px, 3vw, 40px);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .pra-services__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* --- Processo (claro e sóbrio; navy só no hero do Início) --- */
+  .pra-process {
+    padding-block: var(--space-section);
+    border-top: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+
+  .pra-process__inner {
+    padding-block: 0;
+    display: grid;
+    gap: var(--space-block);
+  }
+
+  .pra-process__list {
+    display: grid;
+    gap: var(--space-block);
+  }
+
+  .pra-process__item {
+    display: grid;
+    gap: 0.5em;
+    align-content: start;
+    padding-top: 1em;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  }
+
+  .pra-process__num {
+    color: var(--accent);
+  }
+
+  .pra-process__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .pra-process__item p {
+    opacity: 0.78;
+    max-width: 26em;
+  }
+
+  .pra-process__media {
+    aspect-ratio: 4 / 5;
+    max-width: 420px;
+    overflow: hidden;
+  }
+
+  .pra-process__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 768px) {
+    .pra-process__list {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .pra-process__inner {
+      grid-template-columns: 1fr minmax(300px, 420px);
+      align-items: start;
+    }
+
+    .pra-process__inner .section-head,
+    .pra-process__inner .title,
+    .pra-process__inner .pra-process__list {
+      grid-column: 1;
+    }
+
+    .pra-process__media {
+      grid-column: 2;
+      grid-row: 2 / 4;
+    }
+  }
+
+  /* --- Equipe --- */
+  .pra-team__intro {
+    margin-top: var(--space-block);
+    opacity: 0.85;
+  }
+
+  .pra-team__grid {
+    display: grid;
+    gap: var(--space-block);
+    margin-top: var(--space-block);
+  }
+
+  .pra-team__card {
+    display: grid;
+    gap: 0.7em;
+    align-content: start;
+    padding-top: 1em;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  }
+
+  .pra-team__media {
+    aspect-ratio: 4 / 5;
+    max-width: 340px;
+    overflow: hidden;
+    margin-bottom: 0.5em;
+  }
+
+  .pra-team__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(1.02);
+    transition: scale var(--dur-slow) var(--ease-out);
+  }
+
+  .pra-team__card:hover .pra-team__media img {
+    scale: 1.04;
+  }
+
+  .pra-team__name {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
+
+  .pra-team__cred {
+    color: var(--accent);
+  }
+
+  .pra-team__card p:last-child {
+    opacity: 0.78;
+    max-width: 34em;
+  }
+
+  @media (min-width: 768px) {
+    .pra-team__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* --- Interlúdio (a frase deles, em navy) --- */
+  .pra-quote {
+    background: var(--navy);
+    color: var(--cream);
+    padding: calc(var(--space-section) * 1.1) var(--gutter);
+  }
+
+  .pra-quote__text {
+    max-width: var(--container);
+    margin-inline: auto;
+  }
+
+  .pra-quote .display em {
+    color: var(--accent-soft);
+  }
+
+  /* --- Clientes --- */
+  .pra-clients__grid {
+    display: grid;
+    gap: var(--space-block);
+    margin-top: var(--space-block);
+  }
+
+  .pra-clients__quote blockquote {
+    display: grid;
+    gap: 1em;
+    padding-top: 1em;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  }
+
+  .pra-clients__quote p {
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+
+  .pra-clients__quote cite {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .pra-clients__brands {
+    margin-top: calc(var(--space-block) * 1.2);
+    padding-top: 1.2em;
+    border-top: 2px solid var(--accent-soft);
+    line-height: 2;
+    opacity: 0.85;
+    max-width: 46em;
+  }
+
+  @media (min-width: 768px) {
+    .pra-clients__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* --- Contato --- */
+  .pra-contact__grid {
+    display: grid;
+    gap: var(--space-block);
+    margin-top: var(--space-block);
+  }
+
+  .pra-contact__lead {
+    margin-top: 1.2em;
+    opacity: 0.85;
+    max-width: 26em;
+  }
+
+  .pra-contact__info {
+    font-style: normal;
+    margin-top: 1.5em;
+    line-height: 1.9;
+    opacity: 0.9;
+  }
+
+  .pra-contact__info .label {
+    color: var(--accent);
+  }
+
+  .pra-contact .note {
+    margin-top: 1.4em;
+  }
+
+  .pra-form {
+    display: grid;
+    gap: 1.4em;
+    justify-items: start;
+  }
+
+  .pra-form__field {
+    display: grid;
+    gap: 0.5em;
+    width: 100%;
+  }
+
+  .pra-form__field .label {
+    opacity: 0.6;
+  }
+
+  .pra-form input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+    padding: 0.6em 0;
+    font: inherit;
+    color: inherit;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .pra-form input:focus {
+    outline: none;
+    border-bottom-color: var(--accent);
+  }
+
+  .pra-form input::placeholder {
+    color: color-mix(in srgb, var(--ink) 40%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .pra-contact__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: calc(var(--space-block) * 2);
+    }
+  }
+
+  /* --- Banda de CTA entre seções (Início) --- */
+  .pra-band {
+    padding: var(--space-section) var(--gutter);
+    max-width: var(--container);
+    margin-inline: auto;
+    display: grid;
+    gap: 1.4em;
+    justify-items: start;
+  }
+}
