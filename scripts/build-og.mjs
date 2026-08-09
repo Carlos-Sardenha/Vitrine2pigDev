@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Gera as og:images (1200×630 JPG) tipográficas de cada página,
- * na paleta da página — o preview no WhatsApp é peça de venda.
+ * na paleta da página. O preview no WhatsApp é peça de venda.
  * Rodar: npm run og
  */
 import { mkdir } from 'node:fs/promises'
@@ -18,7 +18,7 @@ const PAGES = [
     accent: '#0a0a0a',
     lines: ['SEU NEGÓCIO', 'É BOM DEMAIS', 'PRA TER UM SITE', 'qualquer.'],
     italicLast: true,
-    tag: 'CARLOS · SITES COM CARA DE CARO',
+    tag: 'CARLOS · SITES SOFISTICADOS POR PREÇO JUSTO',
   },
   {
     file: 'og-advocacia',
@@ -26,7 +26,7 @@ const PAGES = [
     ink: '#14181d',
     accent: '#8a6f4d',
     lines: ['RIGOR TÉCNICO.', 'ESCUTA HUMANA.'],
-    tag: 'MODELO DE SITE: ADVOCACIA — POR CARLOS',
+    tag: 'MODELO DE SITE: ADVOCACIA, POR CARLOS',
   },
   {
     file: 'og-cafe',
@@ -34,7 +34,7 @@ const PAGES = [
     ink: '#2a190e',
     accent: '#c4762c',
     lines: ['CAFÉ PASSADO NA HORA.', 'PÃO SAINDO DO FORNO.'],
-    tag: 'MODELO DE SITE: CAFÉ — POR CARLOS',
+    tag: 'MODELO DE SITE: CAFÉ, POR CARLOS',
   },
   {
     file: 'og-pradda',
@@ -42,7 +42,7 @@ const PAGES = [
     ink: '#f2efe7',
     accent: '#f2cf8d',
     lines: ['O VALOR EXATO', 'DO SEU IMÓVEL,', 'PRETO NO BRANCO.'],
-    tag: 'PRADDA — PROPOSTA DE REMODELAGEM POR CARLOS',
+    tag: 'PRADDA, PROPOSTA DE REMODELAGEM POR CARLOS',
   },
   {
     file: 'og-salao',
@@ -50,7 +50,7 @@ const PAGES = [
     ink: '#2e2a26',
     accent: '#8fa08a',
     lines: ['SEU TEMPO', 'DE CUIDAR', 'DE VOCÊ.'],
-    tag: 'MODELO DE SITE: SALÃO DE BELEZA — POR CARLOS',
+    tag: 'MODELO DE SITE: SALÃO DE BELEZA, POR CARLOS',
   },
 ]
 

@@ -1,4 +1,4 @@
-﻿# Carlos · Sites com cara de caro
+﻿# Carlos · Sites sofisticados por preço justo
 
 Site de apresentação para venda de sites via cold call: home manifesto + 3 demos
 navegáveis com marcas fictícias (Helena Vasques Advocacia, Torra Miúda, Casa Lume).

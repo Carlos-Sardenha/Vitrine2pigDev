@@ -1,1 +1,0 @@
-import{i as a,a as e,h as i,b as o}from"./transitions-CalsLBDx.js";/* empty css            */import{i as s}from"./demo-frame-BePDpdS9.js";a();e();i(document.querySelector("[data-hero-lines]"),.2);o();s({demo:"advocacia",waMessage:"Oi Carlos! Vi o modelo de site para advocacia (Helena Vasques) e quero um site assim pro meu negócio."});

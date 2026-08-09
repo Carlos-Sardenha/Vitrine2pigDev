@@ -45,6 +45,17 @@ if (!reduced) {
     })
   }
 
+  // Item da vitrine em foco: destaca o "Ver modelo" enquanto ele
+  // atravessa a dobra, dando resposta de cor ao scroll.
+  document.querySelectorAll('.vitrine__item').forEach((item) => {
+    ScrollTrigger.create({
+      trigger: item,
+      start: 'top 78%',
+      end: 'bottom 32%',
+      toggleClass: { targets: item, className: 'is-active' },
+    })
+  })
+
   // Parallax sutil (6-8%) nos thumbnails da vitrine
   document.querySelectorAll('[data-parallax] img').forEach((img) => {
     gsap.fromTo(

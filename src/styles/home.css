@@ -145,13 +145,15 @@
     opacity: 0.75;
   }
 
+  /* Sempre visível: o botão é a promessa da linha, não um segredo do hover */
   .vitrine__cta {
-    margin-top: 0.4em;
-    opacity: 0;
-    transform: translateY(6px);
-    transition:
-      opacity var(--dur-fast) var(--ease-out),
-      transform var(--dur-fast) var(--ease-out);
+    margin-top: 0.5em;
+  }
+
+  /* Ao passar pela dobra, o item ativo destaca o próprio botão */
+  .vitrine__item.is-active .vitrine__cta {
+    background: color-mix(in srgb, currentColor 20%, transparent);
+    border-color: currentColor;
   }
 
   .vitrine__media {
@@ -193,8 +195,8 @@
 
   .vitrine__link:hover .vitrine__cta,
   .vitrine__link:focus-visible .vitrine__cta {
-    opacity: 1;
-    transform: translateY(0);
+    background: color-mix(in srgb, currentColor 26%, transparent);
+    border-color: currentColor;
   }
 
   @media (min-width: 768px) {

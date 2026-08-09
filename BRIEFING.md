@@ -92,7 +92,7 @@ navegação fluida, zero poluição visual.
 
 - Material existente: **só nome e WhatsApp**. Toda a copy foi escrita no tom próximo
   e direto (manifesto, vitrine, passos, sobre, demos).
-- **Descritor escolhido: "Carlos · Sites com cara de caro."**
+- **Descritor escolhido: "Carlos · Sites sofisticados por preço justo."**
 - Foto pessoal: placeholder elegante até o Carlos fornecer.
 
 ### Bloco 5 — Funcionalidades e conversão ✅
